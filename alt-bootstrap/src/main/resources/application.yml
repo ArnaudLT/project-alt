@@ -1,0 +1,30 @@
+
+server:
+  port: 8080
+
+spring:
+
+  profiles:
+    active: local
+
+  servlet:
+    multipart:
+      max-file-size: 1GB
+      max-request-size: 1GB
+
+  datasource:
+    url: jdbc:h2:mem:projectaltdb;IFEXISTS=FALSE;DB_CLOSE_DELAY=-1
+    driverClassName: org.h2.Driver
+    username: alt
+    password: alt
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    open-in-view: false
+
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.xml
+
+  h2:
+    console:
+      enabled: true
