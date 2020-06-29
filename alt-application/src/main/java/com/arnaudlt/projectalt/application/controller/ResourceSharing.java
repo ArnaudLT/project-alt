@@ -57,8 +57,8 @@ public class ResourceSharing {
     }
 
 
-    @GetMapping(value = "/stream")
-    public ResponseEntity<ResourceRegion> stream(@RequestParam String filename, @RequestHeader HttpHeaders httpHeaders)
+    @GetMapping(value = "/stream-region")
+    public ResponseEntity<ResourceRegion> streamRegion(@RequestParam String filename, @RequestHeader HttpHeaders httpHeaders)
             throws IOException {
 
         if (isNotValidFilename(filename)) {
@@ -94,9 +94,8 @@ public class ResourceSharing {
     }
 
 
-    // TODO find why it works with springboot 2.0.1.RELEASE (java 8) and does not work with 2.3.0.RELEASE (java 14) !!
-    @GetMapping(value = "/stream2")
-    public ResponseEntity<UrlResource> stream2(@RequestParam String filename)
+    @GetMapping(value = "/stream")
+    public ResponseEntity<UrlResource> stream(@RequestParam String filename)
             throws IOException {
 
         if (isNotValidFilename(filename)) {
@@ -105,9 +104,9 @@ public class ResourceSharing {
 
         var resource = new UrlResource("file:" + mediaDirectory + filename);
 
-        return ResponseEntity.status(HttpStatus.PARTIAL_CONTENT)
+        return ResponseEntity.ok()
                 .contentType(MediaTypeFactory.getMediaType(resource)
-                        .orElse(MediaType.APPLICATION_OCTET_STREAM))
+                                             .orElse(MediaType.APPLICATION_OCTET_STREAM))
                 .body(resource);
     }
 

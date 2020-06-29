@@ -22,9 +22,9 @@
 	</properties>
 
 	<modules>
-		<module>alt-application</module>
 		<module>alt-domain</module>
 		<module>alt-infrastructure</module>
+		<module>alt-application</module>
 		<module>alt-bootstrap</module>
 	</modules>
 
@@ -78,17 +78,5 @@
 			</exclusions>
 		</dependency>
 	</dependencies>
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<mainClass>com.arnaudlt.projectalt.ProjectAltApplication</mainClass>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
 
 </project>
