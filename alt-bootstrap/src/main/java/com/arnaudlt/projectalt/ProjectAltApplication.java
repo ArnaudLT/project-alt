@@ -4,7 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
-@SpringBootApplication(scanBasePackages= {"com.arnaudlt.projectalt"})
+@SpringBootApplication
 public class ProjectAltApplication {
 
 	public static void main(String[] args) {
